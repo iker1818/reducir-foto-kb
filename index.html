@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reducir foto a KB gratis, sin subirla a ningún sitio</title>
+  <meta name="description" content="Reduce el peso de tu foto a 50, 100, 200 KB o el que necesites, o ajústala a formato carnet. Gratis, sin registro y todo en tu dispositivo.">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="apple-touch-icon" href="img/favicon-180.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Foto Converter, inicio">
+        <img class="brand__logo" src="img/logo.png" alt="Foto Converter" width="64" height="64">
+      </a>
+    </div>
+  </header>
+
+  <main class="page container stack">
+
+    <div>
+      <h1 class="page__title">Reduce tu foto al peso que te piden</h1>
+      <p class="page__lead">Sube la foto, elige el peso y descarga. No se envía a ningún servidor: todo ocurre en tu dispositivo.</p>
+    </div>
+
+    <section class="card stack" aria-label="Herramienta">
+
+      <!-- 1. Subir la foto -->
+      <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-label="Elegir una foto">
+        <p class="dropzone__title">Arrastra tu foto aquí</p>
+        <p class="dropzone__hint">o haz clic para elegirla (JPG, PNG, WebP)</p>
+        <input id="file-input" type="file" accept="image/*" class="hidden">
+      </div>
+
+      <!-- 2. Opciones -->
+      <div id="options" class="stack hidden">
+
+        <fieldset class="field">
+          <legend class="field__label">Peso máximo</legend>
+          <div class="row">
+            <label class="chip"><input type="radio" name="weight" value="50"><span>50 KB</span></label>
+            <label class="chip"><input type="radio" name="weight" value="100" checked><span>100 KB</span></label>
+            <label class="chip"><input type="radio" name="weight" value="200"><span>200 KB</span></label>
+            <label class="chip"><input type="radio" name="weight" value="500"><span>500 KB</span></label>
+            <label class="chip"><input type="radio" name="weight" value="custom"><span>Otro</span></label>
+            <input id="custom-weight" class="input hidden" type="number" min="10" max="5000" step="10" placeholder="KB" aria-label="Peso máximo en KB">
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend class="field__label">Formato</legend>
+          <div class="row">
+            <label class="chip"><input type="radio" name="shape" value="original" checked><span>Sin recortar</span></label>
+            <label class="chip"><input type="radio" name="shape" value="3:4"><span>Foto carnet (3:4)</span></label>
+            <label class="chip"><input type="radio" name="shape" value="1:1"><span>Cuadrada</span></label>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <!-- 3. Resultado -->
+      <div id="result" class="stack hidden">
+        <img id="preview" class="preview" alt="Vista previa de la foto reducida">
+        <p id="result-info" class="result__info"></p>
+        <div class="row">
+          <button id="btn-download" class="btn btn--primary" type="button">Descargar foto</button>
+          <button id="btn-reset" class="btn btn--ghost" type="button">Cambiar foto</button>
+        </div>
+      </div>
+
+      <p id="message" class="msg" role="status"></p>
+
+    </section>
+
+    <section class="faq stack" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="faq__title">Preguntas frecuentes</h2>
+
+      <details class="faq__item">
+        <summary>¿Cómo reducir una foto a 100 KB?</summary>
+        <p>Sube tu foto, elige «100 KB» en el peso máximo y pulsa «Descargar foto». La herramienta baja la calidad de la imagen lo justo y, si hace falta, también reduce sus dimensiones hasta que cabe en el peso elegido.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Mi foto se sube a algún servidor?</summary>
+        <p>No. La foto se procesa en tu propio navegador y no sale de tu dispositivo. Nadie más la ve ni se guarda una copia.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Qué formatos acepta?</summary>
+        <p>JPG, PNG y WebP. El resultado siempre se descarga en JPG, que es el formato que suelen pedir los trámites online. Las fotos HEIC de iPhone solo se abren en algunos navegadores; si no se abre, conviértela antes a JPG.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Qué medidas tiene una foto carnet?</summary>
+        <p>Depende del trámite o de la convocatoria. La opción «Foto carnet (3:4)» recorta la imagen con esa proporción, pero no garantiza las medidas oficiales. Revisa siempre las medidas y el peso que pide el organismo al que vas a enviarla.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Por qué mi foto pierde calidad?</summary>
+        <p>Cuanto menor es el peso que pides, más hay que comprimir la imagen. Si el resultado se ve demasiado borroso, prueba con un peso mayor.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Es gratis? ¿Necesito registrarme?</summary>
+        <p>Es gratis y no hace falta registro ni cuenta.</p>
+      </details>
+    </section>
+
+    <p class="msg">Cada trámite o convocatoria pide un formato distinto. Comprueba siempre las medidas y el peso que exige la tuya.</p>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Tus fotos no salen de tu dispositivo.</div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
