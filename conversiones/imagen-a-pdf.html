@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Imagen ↔ PDF gratis y en el navegador</title>
+  <meta name="description" content="Convierte imágenes a PDF o extrae las páginas de un PDF directamente en tu navegador.">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <nav class="nav" aria-label="Principal">
+    <div class="container nav__inner">
+      <a class="brand" href="../index.html" data-i18n-aria="brand.home"><img class="brand__logo" src="../img/Gemini_Generated_Image_z8re8yz8re8yz8re.jfif" alt="Logotipo de Make Easy, herramientas sencillas" data-i18n-alt="brand.logoAlt"></a>
+      <button class="nav__toggle btn btn--ghost" type="button" aria-expanded="false" aria-controls="nav-menu">Menú</button>
+      <ul id="nav-menu" class="nav__menu">
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-fotos">Fotos</button>
+          <ul id="submenu-fotos" class="nav__submenu">
+            <li><a href="../index.html#photo-tool">Reducir foto</a></li>
+            <li><a href="../fotos/quitar-fondo.html">Quitar fondo</a></li>
+            <li><a href="../fotos/cambiar-formato.html">Cambiar formato de fotos</a></li>
+            <li><a href="../fotos/foto-carnet.html">Foto carnet / Pasaporte / DNI</a></li>
+            <li><a href="../fotos/mejorar-resolucion.html">Mejorar resolución</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle is-current" type="button" aria-expanded="false" aria-controls="submenu-convertidores">Convertidores</button>
+          <ul id="submenu-convertidores" class="nav__submenu">
+            <li><a href="../conversiones/unidades.html">Convertidor de unidades</a></li>
+            <li><a href="../conversiones/imagen-a-pdf.html" aria-current="page">Imagen ↔ PDF</a></li>
+            <li><a href="../conversiones/convertidor-monedas.html">Convertidor de monedas</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-finanzas">Finanzas</button>
+          <ul id="submenu-finanzas" class="nav__submenu">
+            <li><a href="../finanzas/interes.html">Calculadora de interés compuesto</a></li>
+            <li><a href="../finanzas/porcentajes.html">Calculadora de porcentajes</a></li>
+            <li><a href="../finanzas/prestamo.html">Calculadora de cuota de préstamo / hipoteca</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-documentos">Documentos</button>
+          <ul id="submenu-documentos" class="nav__submenu">
+            <li><a href="../documentos/combinar-pdf.html">Combinar PDF</a></li>
+            <li><a href="../documentos/dividir-pdf.html">Dividir PDF</a></li>
+            <li><a href="../documentos/comprimir-pdf.html">Comprimir PDF</a></li>
+            <li><a href="../documentos/ocr.html">Extraer texto con OCR</a></li>
+            <li><a href="../documentos/contar-texto.html">Contar palabras y caracteres</a></li>
+          </ul>
+        </li>
+        <li><a href="../herramientas.html">Todas</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page container stack">
+    <div>
+      <h1 id="tool-title" class="page__title">Imagen ↔ PDF</h1>
+      <p class="page__lead">Cambia entre ambos modos y procesa los archivos directamente en tu navegador.</p>
+    </div>
+
+    <section class="card stack" aria-labelledby="tool-title">
+      <div class="row conversion-mode" aria-label="Modo de conversión">
+        <button id="mode-image-pdf" class="btn btn--primary" type="button" aria-pressed="true">Imagen → PDF</button>
+        <button id="mode-pdf-image" class="btn btn--ghost" type="button" aria-pressed="false">PDF → Imágenes</button>
+      </div>
+      <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-label="Añadir imágenes al PDF">
+        <p class="dropzone__title">Arrastra tus imágenes aquí</p>
+        <p class="dropzone__hint">o haz clic para elegir JPG, PNG o WebP</p>
+        <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" multiple class="hidden">
+      </div>
+
+      <div class="form-grid pdf-options">
+        <label id="orientation-field" class="field">Orientación de página
+          <select id="orientation" class="input input--full">
+            <option value="portrait">Vertical (A4)</option>
+            <option value="landscape">Horizontal (A4)</option>
+          </select>
+        </label>
+        <label id="format-field" class="field hidden">Formato de salida
+          <select id="output-format" class="input input--full">
+            <option value="png">PNG</option>
+            <option value="jpeg">JPG</option>
+          </select>
+        </label>
+        <p id="mode-description" class="msg">Cada imagen ocupa una página y se ajusta sin deformarse. Puedes cambiar el orden antes de crear el PDF.</p>
+      </div>
+
+      <ol id="file-list" class="pdf-file-list hidden" aria-label="Orden de las imágenes del PDF"></ol>
+
+      <div class="row">
+        <button id="create-pdf" class="btn btn--primary" type="button" disabled>Crear y descargar PDF</button>
+        <button id="clear-files" class="btn btn--ghost" type="button" disabled>Quitar todas</button>
+      </div>
+      <p id="message" class="msg" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="faq stack" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="faq__title">Preguntas frecuentes</h2>
+      <details class="faq__item">
+        <summary>¿Se envían mis imágenes a un servidor?</summary>
+        <p>No. Las imágenes se procesan en tu navegador y no se suben ni se guardan en un servidor.</p>
+      </details>
+      <details class="faq__item">
+        <summary>¿Puedo incluir varias imágenes en un solo PDF?</summary>
+        <p>Sí. Cada imagen ocupa una página y puedes reordenarlas con los botones antes de descargar el documento.</p>
+      </details>
+      <details class="faq__item">
+        <summary>¿El PDF sirve para cualquier trámite oficial?</summary>
+        <p>Genera páginas A4 verticales u horizontales, pero cada organismo puede pedir límites de tamaño, orientación o resolución distintos. Comprueba sus requisitos antes de enviarlo.</p>
+      </details>
+      <details class="faq__item">
+        <summary>¿Se mantiene la calidad y el formato original?</summary>
+        <p>Las páginas se rasterizan a unos 200 ppp y se guardan como JPG, por lo que la calidad y el tamaño pueden variar. La imagen no se estira; el texto fotografiado no queda seleccionable.</p>
+      </details>
+      <details class="faq__item">
+        <summary>¿Cómo se convierte PDF a imágenes?</summary>
+        <p>Selecciona “PDF → Imágenes”, añade uno o varios PDF y elige PNG o JPG. Se descargará una imagen por cada página del documento.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <nav aria-label="Todas las herramientas">
+        <ul class="site-footer__links">
+          <li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="../js/imagen-a-pdf.js"></script>
+</body>
+</html>

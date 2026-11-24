@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://reducir-foto-kb.netlify.app/</loc>
-    <lastmod>2026-11-23</lastmod>
-  </url>
+  <url><loc>https://hazlofacil-tools.netlify.app/</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/herramientas.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/fotos/quitar-fondo.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/fotos/cambiar-formato.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/fotos/foto-carnet.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/fotos/mejorar-resolucion.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/conversiones/unidades.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/conversiones/imagen-a-pdf.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/conversiones/convertidor-monedas.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/finanzas/interes.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/finanzas/porcentajes.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/finanzas/prestamo.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/documentos/combinar-pdf.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/documentos/dividir-pdf.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/documentos/comprimir-pdf.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/documentos/ocr.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://hazlofacil-tools.netlify.app/documentos/contar-texto.html</loc><lastmod>2026-11-24</lastmod></url>
 </urlset>

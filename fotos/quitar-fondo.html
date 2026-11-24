@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quitar fondo de una imagen</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <main class="page container stack">
+    <div><h1 class="page__title">Quitar fondo</h1><p class="page__lead">Elimina fondos claros o uniformes directamente en tu navegador.</p></div>
+    <section class="card stack" aria-label="Herramienta para quitar fondo">
+      <input id="file-input" type="file" accept="image/*" class="hidden">
+      <button id="choose-file" class="btn btn--primary" type="button">Elegir imagen</button>
+      <div class="control-grid">
+        <label class="field">Tolerancia<div class="range-wrap"><input id="tolerance" type="range" min="10" max="100" value="45"><output id="tolerance-value">45</output></div></label>
+        <label class="field">Fondo de prueba<select id="background" class="input input--full"><option value="transparent">Transparente</option><option value="#ffffff">Blanco</option><option value="#2563eb">Azul</option><option value="#111827">Oscuro</option></select></label>
+      </div>
+      <div id="preview" class="work-preview canvas-checker"><p class="msg">Selecciona una imagen.</p></div>
+      <p id="message" class="msg">Funciona mejor con fondos lisos y contrastados. Los fondos complejos pueden requerir recortes manuales o una herramienta con IA.</p>
+      <button id="download" class="btn btn--primary" type="button" disabled>Descargar PNG</button>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container site-footer__inner"><nav aria-label="Todas las herramientas"><ul class="site-footer__links"><li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li></ul></nav></div></footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/quitar-fondo.js"></script>
+</body>
+</html>

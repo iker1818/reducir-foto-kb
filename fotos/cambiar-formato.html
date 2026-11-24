@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cambiar formato de fotos</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <main class="page container stack">
+    <div><h1 class="page__title">Cambiar formato de fotos</h1><p class="page__lead">Convierte imágenes a JPG, PNG o WebP.</p></div>
+    <section class="card stack" aria-label="Convertir formato de imagen">
+      <input id="file-input" type="file" accept="image/*" class="hidden">
+      <button id="choose-file" class="btn btn--primary" type="button">Elegir imagen</button>
+      <div class="control-grid">
+        <label class="field">Formato<select id="format" class="input input--full"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></label>
+        <label id="quality-field" class="field">Calidad<div class="range-wrap"><input id="quality" type="range" min="50" max="100" value="92"><output id="quality-value">92%</output></div></label>
+      </div>
+      <div id="preview" class="work-preview"><p class="msg">Sin imagen seleccionada.</p></div>
+      <p id="message" class="msg" role="status"></p>
+      <button id="download" class="btn btn--primary" type="button" disabled>Descargar resultado</button>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container site-footer__inner"><nav aria-label="Todas las herramientas"><ul class="site-footer__links"><li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li></ul></nav></div></footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script><script src="../js/cambiar-formato.js"></script>
+</body>
+</html>

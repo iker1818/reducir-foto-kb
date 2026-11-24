@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://reducir-foto-kb.netlify.app/sitemap.xml
+Sitemap: https://hazlofacil-tools.netlify.app/sitemap.xml

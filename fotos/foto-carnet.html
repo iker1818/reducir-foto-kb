@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Foto de carnet, pasaporte o DNI</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <main class="page container stack">
+    <div><h1 class="page__title">Foto carnet / Pasaporte / DNI</h1><p class="page__lead">Recorta una proporción práctica y descarga una imagen lista para ajustar al trámite.</p></div>
+    <section class="card stack" aria-label="Preparar foto de documento">
+      <input id="file-input" type="file" accept="image/*" class="hidden">
+      <button id="choose-file" class="btn btn--primary" type="button">Elegir fotografía</button>
+      <div class="control-grid">
+        <label class="field">Proporción<select id="ratio" class="input input--full"><option value="3:4">Carné 3:4</option><option value="35:45">Pasaporte 35×45</option><option value="1:1">Cuadrada 1:1</option></select></label>
+        <label class="field">Posición horizontal<div class="range-wrap"><input id="position-x" type="range" min="-100" max="100" value="0"><output id="position-x-value">Centro</output></div></label>
+        <label class="field">Posición vertical<div class="range-wrap"><input id="position-y" type="range" min="-100" max="100" value="0"><output id="position-y-value">Centro</output></div></label>
+        <label class="field">Formato<select id="format" class="input input--full"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option></select></label>
+      </div>
+      <div id="preview" class="work-preview"><p class="msg">Selecciona una fotografía.</p></div>
+      <p id="message" class="msg" role="status">Las medidas oficiales varían por país y organismo. Comprueba siempre los requisitos del trámite.</p>
+      <button id="download" class="btn btn--primary" type="button" disabled>Descargar foto</button>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container site-footer__inner"><nav aria-label="Todas las herramientas"><ul class="site-footer__links"><li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li></ul></nav></div></footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script><script src="../js/foto-carnet.js"></script>
+</body>
+</html>

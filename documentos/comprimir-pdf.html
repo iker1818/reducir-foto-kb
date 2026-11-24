@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comprimir PDF</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <main class="page container stack">
+    <div><h1 class="page__title">Comprimir PDF</h1><p class="page__lead">Vuelve a guardar el PDF con objetos comprimidos y muestra el resultado.</p></div>
+    <section class="card stack" aria-label="Comprimir PDF">
+      <input id="file-input" type="file" accept="application/pdf,.pdf" class="hidden">
+      <button id="choose-file" class="btn btn--primary" type="button">Elegir PDF</button>
+      <div class="stat-grid">
+        <div class="stat"><strong id="before">—</strong><span>Tamaño original</span></div>
+        <div class="stat"><strong id="after">—</strong><span>Tamaño optimizado</span></div>
+      </div>
+      <button id="compress" class="btn btn--primary" type="button" disabled>Optimizar y descargar</button>
+      <p id="message" class="msg" role="status">Los PDF de imágenes de alta resolución pueden no reducir mucho. Nunca elimina texto ni páginas.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container site-footer__inner"><nav aria-label="Todas las herramientas"><ul class="site-footer__links"><li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li></ul></nav></div></footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script><script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script><script src="../js/comprimir-pdf.js"></script>
+</body>
+</html>

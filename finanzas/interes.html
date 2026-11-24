@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de interés compuesto</title>
+  <meta name="description" content="Calcula el capital final, lo invertido y los intereses con aportaciones periódicas.">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <nav class="nav" aria-label="Principal">
+    <div class="container nav__inner">
+      <a class="brand" href="../index.html" data-i18n-aria="brand.home"><img class="brand__logo" src="../img/Gemini_Generated_Image_z8re8yz8re8yz8re.jfif" alt="Logotipo de Make Easy, herramientas sencillas" data-i18n-alt="brand.logoAlt"></a>
+      <button class="nav__toggle btn btn--ghost" type="button" aria-expanded="false" aria-controls="nav-menu">Menú</button>
+      <ul id="nav-menu" class="nav__menu">
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-fotos">Fotos</button>
+          <ul id="submenu-fotos" class="nav__submenu">
+            <li><a href="../index.html#photo-tool">Reducir foto</a></li>
+            <li><a href="../fotos/quitar-fondo.html">Quitar fondo</a></li>
+            <li><a href="../fotos/cambiar-formato.html">Cambiar formato de fotos</a></li>
+            <li><a href="../fotos/foto-carnet.html">Foto carnet / Pasaporte / DNI</a></li>
+            <li><a href="../fotos/mejorar-resolucion.html">Mejorar resolución</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-convertidores">Convertidores</button>
+          <ul id="submenu-convertidores" class="nav__submenu">
+            <li><a href="../conversiones/unidades.html">Convertidor de unidades</a></li>
+            <li><a href="../conversiones/imagen-a-pdf.html">Imagen ↔ PDF</a></li>
+            <li><a href="../conversiones/convertidor-monedas.html">Convertidor de monedas</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle is-current" type="button" aria-expanded="false" aria-controls="submenu-finanzas">Finanzas</button>
+          <ul id="submenu-finanzas" class="nav__submenu">
+            <li><a href="../finanzas/interes.html" aria-current="page">Calculadora de interés compuesto</a></li>
+            <li><a href="../finanzas/porcentajes.html">Calculadora de porcentajes</a></li>
+            <li><a href="../finanzas/prestamo.html">Calculadora de cuota de préstamo / hipoteca</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-documentos">Documentos</button>
+          <ul id="submenu-documentos" class="nav__submenu">
+            <li><a href="../documentos/combinar-pdf.html">Combinar PDF</a></li>
+            <li><a href="../documentos/dividir-pdf.html">Dividir PDF</a></li>
+            <li><a href="../documentos/comprimir-pdf.html">Comprimir PDF</a></li>
+            <li><a href="../documentos/ocr.html">Extraer texto con OCR</a></li>
+            <li><a href="../documentos/contar-texto.html">Contar palabras y caracteres</a></li>
+          </ul>
+        </li>
+        <li><a href="../herramientas.html">Todas</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page container stack">
+    <div><h1 class="page__title">Calculadora de interés compuesto</h1>
+    <p class="page__lead">Aportaciones mensuales al final de cada mes.</p></div>
+    <section class="card stack">
+      <div class="form-grid form-grid--finance">
+        <label class="field">Aportación inicial (€)<input id="ini" class="input input--full" type="number" min="0" value="1000"></label>
+        <label class="field">Aportación mensual (€)<input id="mes" class="input input--full" type="number" min="0" value="100"></label>
+        <label class="field">Rentabilidad anual (%)<input id="tasa" class="input input--full" type="number" min="0" step="0.1" value="5"></label>
+        <label class="field">Plazo (años)<input id="anios" class="input input--full" type="number" min="1" max="60" value="10"></label>
+        <label class="field">Capitalización<select id="cap" class="input input--full"><option value="12">Mensual</option><option value="4">Trimestral</option><option value="1">Anual</option></select></label>
+      </div>
+    </section>
+    <section class="card stack" aria-live="polite">
+      <p id="resumen" class="result__info"></p>
+      <div class="table-wrap"><table class="table"><thead><tr><th>Año</th><th>Invertido</th><th>Intereses</th><th>Total</th></tr></thead><tbody id="tabla"></tbody></table></div>
+    </section>
+    <p class="msg">Simulación orientativa; no constituye asesoramiento financiero ni fiscal.</p>
+    <p class="msg">El cálculo no tiene en cuenta impuestos, comisiones ni inflación.</p>
+
+    <section class="faq stack" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="faq__title">Preguntas frecuentes</h2>
+
+      <details class="faq__item">
+        <summary>¿Cómo influyen la capitalización y las aportaciones?</summary>
+        <p>La frecuencia (mensual, trimestral o anual) modifica el equivalente mensual de la tasa. La aportación inicial cuenta desde el principio y cada aportación mensual se añade al final de mes, después del crecimiento de ese periodo.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Qué significan «Invertido», «Intereses» y «Total»?</summary>
+        <p>«Invertido» suma el capital inicial y las aportaciones. «Intereses» es la diferencia entre el total y lo invertido; «Total» es el saldo estimado. Los importes se redondean al euro.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Qué supuestos o costes no incluye?</summary>
+        <p>No descuenta impuestos, inflación ni comisiones reales, y no garantiza rentabilidades futuras. El resultado es una proyección basada en la tasa que introduces, no asesoramiento financiero ni fiscal.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Se guardan o envían las cantidades que introduzco?</summary>
+        <p>No. El cálculo se realiza en tu navegador y los valores no se envían a un servidor.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <nav aria-label="Todas las herramientas">
+        <ul class="site-footer__links">
+          <li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/interes.js"></script>
+</body>
+</html>

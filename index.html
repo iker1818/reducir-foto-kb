@@ -4,39 +4,83 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reducir foto a KB gratis, sin subirla a ningún sitio</title>
-  <meta name="description" content="Reduce el peso de tu foto a 50, 100, 200 KB o el que necesites, o ajústala a formato carnet. Gratis, sin registro y todo en tu dispositivo.">
+  <meta name="description" content="Reduce el peso de tu foto a 50, 100, 200 KB o el que necesites. Gratis, sin registro y todo en tu dispositivo.">
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
   <link rel="apple-touch-icon" href="img/favicon-180.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html" aria-label="Foto Converter, inicio">
-        <img class="brand__logo" src="img/logo.png" alt="Foto Converter" width="64" height="64">
-      </a>
+  <nav class="nav" aria-label="Principal">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html" data-i18n-aria="brand.home"><img class="brand__logo" src="img/Gemini_Generated_Image_z8re8yz8re8yz8re.jfif" alt="Logotipo de Make Easy, herramientas sencillas" data-i18n-alt="brand.logoAlt"></a>
+      <button class="nav__toggle btn btn--ghost" type="button" aria-expanded="false" aria-controls="nav-menu">Menú</button>
+      <ul id="nav-menu" class="nav__menu">
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle is-current" type="button" aria-expanded="false" aria-controls="submenu-fotos">Fotos</button>
+          <ul id="submenu-fotos" class="nav__submenu">
+            <li><a href="index.html#photo-tool" aria-current="page">Reducir foto</a></li>
+            <li><a href="fotos/quitar-fondo.html">Quitar fondo</a></li>
+            <li><a href="fotos/cambiar-formato.html">Cambiar formato de fotos</a></li>
+            <li><a href="fotos/foto-carnet.html">Foto carnet / Pasaporte / DNI</a></li>
+            <li><a href="fotos/mejorar-resolucion.html">Mejorar resolución</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-convertidores">Convertidores</button>
+          <ul id="submenu-convertidores" class="nav__submenu">
+            <li><a href="conversiones/unidades.html">Convertidor de unidades</a></li>
+            <li><a href="conversiones/imagen-a-pdf.html">Imagen ↔ PDF</a></li>
+            <li><a href="conversiones/convertidor-monedas.html">Convertidor de monedas</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-finanzas">Finanzas</button>
+          <ul id="submenu-finanzas" class="nav__submenu">
+            <li><a href="finanzas/interes.html">Calculadora de interés compuesto</a></li>
+            <li><a href="finanzas/porcentajes.html">Calculadora de porcentajes</a></li>
+            <li><a href="finanzas/prestamo.html">Calculadora de cuota de préstamo / hipoteca</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-documentos">Documentos</button>
+          <ul id="submenu-documentos" class="nav__submenu">
+            <li><a href="documentos/combinar-pdf.html">Combinar PDF</a></li>
+            <li><a href="documentos/dividir-pdf.html">Dividir PDF</a></li>
+            <li><a href="documentos/comprimir-pdf.html">Comprimir PDF</a></li>
+            <li><a href="documentos/ocr.html">Extraer texto con OCR</a></li>
+            <li><a href="documentos/contar-texto.html">Contar palabras y caracteres</a></li>
+          </ul>
+        </li>
+        <li><a href="herramientas.html">Todas</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
   <main class="page container stack">
 
     <div>
-      <h1 class="page__title">Reduce tu foto al peso que te piden</h1>
-      <p class="page__lead">Sube la foto, elige el peso y descarga. No se envía a ningún servidor: todo ocurre en tu dispositivo.</p>
+      <h1 class="page__title" data-i18n="photo.title">Reduce el tamaño de tu foto</h1>
+      <p class="page__lead" data-i18n="photo.lead">Sube una imagen y descarga el resultado al peso indicado.</p>
     </div>
 
-    <section class="card stack" aria-label="Herramienta">
+    <section id="photo-tool" class="photo-tool stack" aria-label="Herramienta">
 
-      <!-- 1. Subir la foto -->
-      <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-label="Elegir una foto">
-        <p class="dropzone__title">Arrastra tu foto aquí</p>
-        <p class="dropzone__hint">o haz clic para elegirla (JPG, PNG, WebP)</p>
+      <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-label="Elegir una foto" data-i18n-aria="photo.choose">
+      <p class="dropzone__title" data-i18n="photo.drag">Arrastra tu foto aquí</p>
+      <p class="dropzone__hint" data-i18n="photo.hint">o haz clic para elegirla (JPG, PNG, WebP)</p>
         <input id="file-input" type="file" accept="image/*" class="hidden">
       </div>
 
-      <!-- 2. Opciones -->
-      <div id="options" class="stack hidden">
+      <div id="options" class="card stack hidden">
+
+        <div class="field">
+          <p class="field__label">Ajustes rápidos</p>
+          <div class="row photo-presets">
+            <button class="btn btn--ghost" type="button" data-photo-preset="100">Máx. 100 KB</button>
+            <button class="btn btn--ghost" type="button" data-photo-preset="200">Máx. 200 KB</button>
+          </div>
+        </div>
 
         <fieldset class="field">
           <legend class="field__label">Peso máximo</legend>
@@ -54,20 +98,18 @@
           <legend class="field__label">Formato</legend>
           <div class="row">
             <label class="chip"><input type="radio" name="shape" value="original" checked><span>Sin recortar</span></label>
-            <label class="chip"><input type="radio" name="shape" value="3:4"><span>Foto carnet (3:4)</span></label>
             <label class="chip"><input type="radio" name="shape" value="1:1"><span>Cuadrada</span></label>
           </div>
         </fieldset>
 
       </div>
 
-      <!-- 3. Resultado -->
-      <div id="result" class="stack hidden">
+      <div id="result" class="card stack hidden">
         <img id="preview" class="preview" alt="Vista previa de la foto reducida">
         <p id="result-info" class="result__info"></p>
         <div class="row">
-          <button id="btn-download" class="btn btn--primary" type="button">Descargar foto</button>
-          <button id="btn-reset" class="btn btn--ghost" type="button">Cambiar foto</button>
+          <button id="btn-download" class="btn btn--primary" type="button" data-i18n="photo.download">Descargar foto</button>
+          <button id="btn-reset" class="btn btn--ghost" type="button" data-i18n="photo.change">Cambiar foto</button>
         </div>
       </div>
 
@@ -79,33 +121,18 @@
       <h2 id="faq-title" class="faq__title">Preguntas frecuentes</h2>
 
       <details class="faq__item">
-        <summary>¿Cómo reducir una foto a 100 KB?</summary>
-        <p>Sube tu foto, elige «100 KB» en el peso máximo y pulsa «Descargar foto». La herramienta baja la calidad de la imagen lo justo y, si hace falta, también reduce sus dimensiones hasta que cabe en el peso elegido.</p>
+        <summary>¿Cómo se procesa mi foto?</summary>
+        <p>La imagen se procesa en tu navegador y no se envía a un servidor. Elige un peso máximo o un ajuste rápido; si hace falta, se reducen la calidad y las dimensiones para alcanzarlo.</p>
       </details>
 
       <details class="faq__item">
-        <summary>¿Mi foto se sube a algún servidor?</summary>
-        <p>No. La foto se procesa en tu propio navegador y no sale de tu dispositivo. Nadie más la ve ni se guarda una copia.</p>
+        <summary>¿Qué formatos acepta y cuál descarga?</summary>
+        <p>Acepta JPG, PNG y WebP, y descarga el resultado en JPG. Algunos navegadores no abren fotos HEIC; si ocurre, conviértela primero a JPG.</p>
       </details>
-
+x
       <details class="faq__item">
-        <summary>¿Qué formatos acepta?</summary>
-        <p>JPG, PNG y WebP. El resultado siempre se descarga en JPG, que es el formato que suelen pedir los trámites online. Las fotos HEIC de iPhone solo se abren en algunos navegadores; si no se abre, conviértela antes a JPG.</p>
-      </details>
-
-      <details class="faq__item">
-        <summary>¿Qué medidas tiene una foto carnet?</summary>
-        <p>Depende del trámite o de la convocatoria. La opción «Foto carnet (3:4)» recorta la imagen con esa proporción, pero no garantiza las medidas oficiales. Revisa siempre las medidas y el peso que pide el organismo al que vas a enviarla.</p>
-      </details>
-
-      <details class="faq__item">
-        <summary>¿Por qué mi foto pierde calidad?</summary>
-        <p>Cuanto menor es el peso que pides, más hay que comprimir la imagen. Si el resultado se ve demasiado borroso, prueba con un peso mayor.</p>
-      </details>
-
-      <details class="faq__item">
-        <summary>¿Es gratis? ¿Necesito registrarme?</summary>
-        <p>Es gratis y no hace falta registro ni tener una cuenta.</p>
+        <summary>¿Qué indican el peso y las dimensiones del resultado?</summary>
+        <p>La comparativa muestra el tamaño y las dimensiones originales frente a los del JPG generado. El peso puede quedar por debajo del máximo elegido; si la imagen pierde demasiada calidad, prueba un límite mayor.</p>
       </details>
     </section>
 
@@ -114,9 +141,17 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">Tus fotos no salen de tu dispositivo.</div>
+    <div class="container site-footer__inner">
+      <nav aria-label="Todas las herramientas">
+        <ul class="site-footer__links">
+          <li><a href="herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li>
+        </ul>
+      </nav>
+    </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
+  <script src="js/nav.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convertidor de unidades online gratis</title>
+  <meta name="description" content="Convierte longitud, peso, temperatura, volumen, velocidad y almacenamiento al instante.">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <nav class="nav" aria-label="Principal">
+    <div class="container nav__inner">
+      <a class="brand" href="../index.html" data-i18n-aria="brand.home"><img class="brand__logo" src="../img/Gemini_Generated_Image_z8re8yz8re8yz8re.jfif" alt="Logotipo de Make Easy, herramientas sencillas" data-i18n-alt="brand.logoAlt"></a>
+      <button class="nav__toggle btn btn--ghost" type="button" aria-expanded="false" aria-controls="nav-menu">Menú</button>
+      <ul id="nav-menu" class="nav__menu">
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-fotos">Fotos</button>
+          <ul id="submenu-fotos" class="nav__submenu">
+            <li><a href="../index.html#photo-tool">Reducir foto</a></li>
+            <li><a href="../fotos/quitar-fondo.html">Quitar fondo</a></li>
+            <li><a href="../fotos/cambiar-formato.html">Cambiar formato de fotos</a></li>
+            <li><a href="../fotos/foto-carnet.html">Foto carnet / Pasaporte / DNI</a></li>
+            <li><a href="../fotos/mejorar-resolucion.html">Mejorar resolución</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle is-current" type="button" aria-expanded="false" aria-controls="submenu-convertidores">Convertidores</button>
+          <ul id="submenu-convertidores" class="nav__submenu">
+            <li><a href="../conversiones/unidades.html" aria-current="page">Convertidor de unidades</a></li>
+            <li><a href="../conversiones/imagen-a-pdf.html">Imagen ↔ PDF</a></li>
+            <li><a href="../conversiones/convertidor-monedas.html">Convertidor de monedas</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-finanzas">Finanzas</button>
+          <ul id="submenu-finanzas" class="nav__submenu">
+            <li><a href="../finanzas/interes.html">Calculadora de interés compuesto</a></li>
+            <li><a href="../finanzas/porcentajes.html">Calculadora de porcentajes</a></li>
+            <li><a href="../finanzas/prestamo.html">Calculadora de cuota de préstamo / hipoteca</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-documentos">Documentos</button>
+          <ul id="submenu-documentos" class="nav__submenu">
+            <li><a href="../documentos/combinar-pdf.html">Combinar PDF</a></li>
+            <li><a href="../documentos/dividir-pdf.html">Dividir PDF</a></li>
+            <li><a href="../documentos/comprimir-pdf.html">Comprimir PDF</a></li>
+            <li><a href="../documentos/ocr.html">Extraer texto con OCR</a></li>
+            <li><a href="../documentos/contar-texto.html">Contar palabras y caracteres</a></li>
+          </ul>
+        </li>
+        <li><a href="../herramientas.html">Todas</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page container stack">
+    <div><h1 class="page__title">Convertidor de unidades</h1>
+    <p class="page__lead">Escribe en cualquiera de los dos campos y el otro se actualiza.</p></div>
+    <section class="card stack">
+      <div class="field"><label class="field__label" for="cat">Tipo</label>
+        <select id="cat" class="input input--full"></select></div>
+      <div class="converter">
+        <div class="field"><input id="va" class="input input--full" type="number" step="any" value="1" aria-label="Valor de origen"><select id="ua" class="input input--full" aria-label="Unidad de origen"></select></div>
+        <button id="swap" class="btn btn--ghost" type="button" aria-label="Intercambiar unidades">⇄</button>
+        <div class="field converter__output">
+          <input id="vb" class="input input--full" type="number" step="any" aria-label="Valor convertido">
+          <select id="ub" class="input input--full" aria-label="Unidad de destino"></select>
+          <div class="row">
+            <button id="copy-result" class="btn btn--ghost" type="button">Copiar resultado</button>
+            <span id="copy-status" class="msg" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq stack" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="faq__title">Preguntas frecuentes</h2>
+
+      <details class="faq__item">
+        <summary>¿Qué precisión tienen los resultados?</summary>
+        <p>Se muestran hasta 10 cifras significativas. El redondeo puede hacer que una conversión de ida y vuelta no recupere exactamente el último decimal.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Cómo se calculan las unidades de almacenamiento?</summary>
+        <p>Se usan múltiplos binarios: 1 KB equivale a 1.024 bytes y 1 MB a 1.024 KB. Algunos fabricantes usan múltiplos decimales de 1.000, así que sus cifras pueden diferir.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Qué unidades imperiales incluye?</summary>
+        <p>Incluye, entre otras, millas, libras y galones y tazas de EE. UU. El galón estadounidense no equivale al galón imperial.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Admite temperaturas bajo cero?</summary>
+        <p>Sí. Convierte Celsius, Fahrenheit y Kelvin con sus fórmulas correspondientes. Un resultado inferior a 0 K no representa una temperatura física posible.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <nav aria-label="Todas las herramientas">
+        <ul class="site-footer__links">
+          <li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/unidades.js"></script>
+</body>
+</html>

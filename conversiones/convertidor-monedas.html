@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convertidor de monedas</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <main class="page container stack">
+    <div><h1 class="page__title">Convertidor de monedas</h1><p class="page__lead">Consulta tipos de referencia o introduce una tasa propia.</p></div>
+    <section class="card stack" aria-label="Convertidor de divisas">
+      <div class="converter">
+        <label class="field">Cantidad<input id="amount" class="input input--full" type="number" min="0" step="any" value="100"></label>
+        <button id="swap" class="btn btn--ghost" type="button" aria-label="Intercambiar monedas">⇄</button>
+        <div class="field"><span>Resultado</span><input id="result" class="input input--full" type="text" readonly></div>
+      </div>
+      <div class="control-grid">
+        <label class="field">Desde<select id="from" class="input input--full"><option>EUR</option><option>USD</option><option>GBP</option><option>JPY</option><option>CAD</option><option>CHF</option><option>MXN</option></select></label>
+        <label class="field">A<select id="to" class="input input--full"><option>USD</option><option>EUR</option><option>GBP</option><option>JPY</option><option>CAD</option><option>CHF</option><option>MXN</option></select></label>
+        <label class="field">Tasa manual<select id="rate-mode" class="input input--full"><option value="api">Usar tipos publicados</option><option value="manual">Introducir tasa propia</option></select></label>
+        <label id="manual-rate-field" class="field hidden">1 moneda origen = ? destino<input id="manual-rate" class="input input--full" type="number" min="0" step="any" value="1"></label>
+      </div>
+      <p id="rate-info" class="msg" role="status">Consultando tipos de cambio…</p>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container site-footer__inner"><nav aria-label="Todas las herramientas"><ul class="site-footer__links"><li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li></ul></nav></div></footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script><script src="../js/convertidor-monedas.js"></script>
+</body>
+</html>

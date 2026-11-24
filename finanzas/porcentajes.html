@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de porcentajes</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <main class="page container stack">
+    <div><h1 class="page__title">Calculadora de porcentajes</h1><p class="page__lead">Resuelve los cálculos porcentuales más habituales.</p></div>
+    <section class="card stack" aria-label="Calculadora de porcentajes">
+      <label class="field">Tipo de cálculo<select id="case" class="input input--full"><option value="of">Calcular X% de Y</option><option value="is">Qué porcentaje es A de B</option><option value="change">Aumento o descuento porcentual</option><option value="variation">Variación porcentual entre dos valores</option></select></label>
+      <div class="control-grid">
+        <label class="field"><span id="label-a">Porcentaje X (%)</span><input id="a" class="input input--full" type="number" step="any" value="20"></label>
+        <label class="field"><span id="label-b">Valor Y</span><input id="b" class="input input--full" type="number" step="any" value="100"></label>
+      </div>
+      <div class="stat"><strong id="answer">20</strong><span id="answer-label">Resultado</span></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container site-footer__inner"><nav aria-label="Todas las herramientas"><ul class="site-footer__links"><li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li></ul></nav></div></footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script><script src="../js/porcentajes.js"></script>
+</body>
+</html>

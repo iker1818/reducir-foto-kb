@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Extraer texto con OCR</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <main class="page container stack">
+    <div><h1 class="page__title">Extraer texto con OCR</h1><p class="page__lead">Reconoce texto en una imagen usando Tesseract.js.</p></div>
+    <section class="card stack" aria-label="OCR">
+      <input id="file-input" type="file" accept="image/*" class="hidden">
+      <button id="choose-file" class="btn btn--primary" type="button">Elegir imagen</button>
+      <div class="control-grid">
+        <label class="field">Idioma<select id="language" class="input input--full"><option value="spa">Español</option><option value="eng">Inglés</option></select></label>
+        <button id="recognize" class="btn btn--primary" type="button" disabled>Reconocer texto</button>
+      </div>
+      <p id="progress" class="status-progress" role="status">Primera carga: puede tardar mientras se descarga el modelo.</p>
+      <textarea id="text-output" class="text-area" aria-label="Texto reconocido" placeholder="El texto reconocido aparecerá aquí"></textarea>
+      <div class="button-row"><button id="copy" class="btn btn--ghost" type="button" disabled>Copiar texto</button><button id="download" class="btn btn--ghost" type="button" disabled>Descargar .txt</button></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container site-footer__inner"><nav aria-label="Todas las herramientas"><ul class="site-footer__links"><li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li></ul></nav></div></footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script><script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script><script src="../js/ocr.js"></script>
+</body>
+</html>

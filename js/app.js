@@ -22,6 +22,7 @@
   // ---------- Estado ----------
   const state = {
     source: null,      // imagen cargada (ImageBitmap o HTMLImageElement)
+    sourceBytes: 0,
     baseName: "foto",
     blob: null,        // resultado final
     previewUrl: null,
@@ -49,6 +50,7 @@
       setMessage("No se ha podido abrir esa imagen. Si es HEIC (iPhone), conviértela primero a JPG.", true);
       return;
     }
+    state.sourceBytes = file.size;
     state.baseName = file.name.replace(/\.[^.]+$/, "") || "foto";
     options.classList.remove("hidden");
     dropzone.classList.add("hidden");
@@ -72,8 +74,8 @@
   function getMaxKB() {
     const choice = document.querySelector('input[name="weight"]:checked').value;
     if (choice === "custom") {
-      const n = parseInt(customWeight.value, 10);
-      return n >= 10 ? n : null;
+      const n = Number(customWeight.value);
+      return Number.isInteger(n) && n >= 10 && n <= 5000 ? n : null;
     }
     return parseInt(choice, 10);
   }
@@ -139,7 +141,7 @@
   async function run() {
     if (!state.source) return;
     const maxKB = getMaxKB();
-    if (!maxKB) { setMessage("Escribe el peso máximo en KB (mínimo 10)."); return; }
+    if (!maxKB) { setMessage("Escribe un peso máximo entero entre 10 y 5000 KB."); return; }
 
     const runId = ++state.runId;
     setMessage("Ajustando la foto…");
@@ -162,8 +164,12 @@
     state.previewUrl = URL.createObjectURL(output.blob);
     preview.src = state.previewUrl;
 
-    const kb = (output.blob.size / 1024).toFixed(0);
-    resultInfo.textContent = kb + " KB · " + output.width + " × " + output.height + " px";
+    const formatKB = window.I18n ? window.I18n.formatNumber : function (value) { return new Intl.NumberFormat("es-ES", { maximumFractionDigits: 1, useGrouping: true }).format(value); };
+    const originalKB = formatKB(state.sourceBytes / 1024);
+    const resultKB = formatKB(output.blob.size / 1024);
+    resultInfo.textContent = "Peso: original " + originalKB + " KB → resultado " + resultKB +
+      " KB · Dimensiones: original " + state.source.width + " × " + state.source.height +
+      " px → resultado " + output.width + " × " + output.height + " px";
     result.classList.remove("hidden");
     setMessage("");
   }
@@ -185,8 +191,13 @@
   // ---------- Volver a empezar ----------
   function reset() {
     state.source = null;
+    state.sourceBytes = 0;
     state.blob = null;
     state.runId++;
+    if (state.previewUrl) {
+      URL.revokeObjectURL(state.previewUrl);
+      state.previewUrl = null;
+    }
     fileInput.value = "";
     options.classList.add("hidden");
     result.classList.add("hidden");
@@ -221,6 +232,18 @@
   );
   customWeight.addEventListener("input", process);
 
+  document.querySelectorAll("[data-photo-preset]").forEach((button) =>
+    button.addEventListener("click", () => {
+      const preset = button.dataset.photoPreset;
+      document.querySelector('input[name="weight"][value="' + preset + '"]').checked = true;
+      customWeight.classList.add("hidden");
+      process();
+    })
+  );
+
   btnDownload.addEventListener("click", download);
   btnReset.addEventListener("click", reset);
+  document.addEventListener("i18n:change", function () {
+    if (state.source) process();
+  });
 })();

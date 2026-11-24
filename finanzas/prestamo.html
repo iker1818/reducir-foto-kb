@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de cuota de préstamo o hipoteca</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <main class="page container stack">
+    <div><h1 class="page__title">Cuota de préstamo / hipoteca</h1><p class="page__lead">Simula una cuota periódica constante.</p></div>
+    <section class="card stack" aria-label="Calculadora de préstamo">
+      <div class="control-grid">
+        <label class="field">Capital (€)<input id="capital" class="input input--full" type="number" min="0" step="100" value="150000"></label>
+        <label class="field">Plazo (años)<input id="years" class="input input--full" type="number" min="1" max="50" step="1" value="25"></label>
+        <label class="field">Interés anual (%)<input id="rate" class="input input--full" type="number" min="0" step="0.01" value="3.5"></label>
+        <label class="field">Frecuencia<select id="frequency" class="input input--full"><option value="12">Mensual</option><option value="4">Trimestral</option><option value="1">Anual</option></select></label>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><strong id="payment">—</strong><span>Cuota periódica</span></div>
+        <div class="stat"><strong id="interest">—</strong><span>Intereses totales</span></div>
+        <div class="stat"><strong id="total">—</strong><span>Total a pagar</span></div>
+      </div>
+      <p class="msg">Nota: simulación orientativa sin comisiones, seguros ni revisión de tipo; puede no coincidir con una oferta bancaria real.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container site-footer__inner"><nav aria-label="Todas las herramientas"><ul class="site-footer__links"><li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li></ul></nav></div></footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script><script src="../js/prestamo.js"></script>
+</body>
+</html>
