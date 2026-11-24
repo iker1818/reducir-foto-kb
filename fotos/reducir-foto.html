@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="seo.photoTitle">Reducir foto online gratis y fácil | hazlofacil-tools</title>
+  <meta name="description" content="Reduce una foto al límite de KB que necesitas y descárgala en JPG, sin subirla a ningún servidor." data-i18n-content="seo.photoDescription">
+  <meta property="og:title" content="Reducir foto online gratis y fácil | hazlofacil-tools" data-i18n-content="seo.photoTitle">
+  <meta property="og:description" content="Reduce una foto al límite de KB que necesitas y descárgala en JPG, sin subirla a ningún servidor." data-i18n-content="seo.photoDescription">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hazlofacil-tools.netlify.app/fotos/reducir-foto.html">
+  <meta property="og:image" content="https://hazlofacil-tools.netlify.app/img/Gemini_Generated_Image_z8re8yz8re8yz8re.jfif">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../img/favicon-180.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <nav class="nav" aria-label="Principal">
+    <div class="container nav__inner">
+      <a class="brand" href="../index.html" data-i18n-aria="brand.home"><img class="brand__logo" src="../img/Gemini_Generated_Image_z8re8yz8re8yz8re.jfif" alt="Logotipo de Make Easy, herramientas sencillas" data-i18n-alt="brand.logoAlt"></a>
+      <button class="nav__toggle btn btn--ghost" type="button" aria-expanded="false" aria-controls="nav-menu">Menú</button>
+      <ul id="nav-menu" class="nav__menu">
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle is-current" type="button" aria-expanded="false" aria-controls="submenu-fotos">Fotos</button>
+          <ul id="submenu-fotos" class="nav__submenu">
+            <li><a href="../fotos/reducir-foto.html" aria-current="page">Reducir foto</a></li>
+            <li><a href="../fotos/quitar-fondo.html">Quitar fondo</a></li>
+            <li><a href="../fotos/cambiar-formato.html">Cambiar formato de fotos</a></li>
+            <li><a href="../fotos/foto-carnet.html">Foto carnet / Pasaporte / DNI</a></li>
+            <li><a href="../fotos/mejorar-resolucion.html">Mejorar resolución</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-convertidores">Convertidores</button>
+          <ul id="submenu-convertidores" class="nav__submenu">
+            <li><a href="../conversiones/unidades.html">Convertidor de unidades</a></li>
+            <li><a href="../conversiones/imagen-a-pdf.html">Imagen ↔ PDF</a></li>
+            <li><a href="../conversiones/convertidor-monedas.html">Convertidor de monedas</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-finanzas">Finanzas</button>
+          <ul id="submenu-finanzas" class="nav__submenu">
+            <li><a href="../finanzas/interes.html">Calculadora de interés compuesto</a></li>
+            <li><a href="../finanzas/porcentajes.html">Calculadora de porcentajes</a></li>
+            <li><a href="../finanzas/prestamo.html">Calculadora de cuota de préstamo / hipoteca</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-documentos">Documentos</button>
+          <ul id="submenu-documentos" class="nav__submenu">
+            <li><a href="../documentos/combinar-pdf.html">Combinar PDF</a></li>
+            <li><a href="../documentos/dividir-pdf.html">Dividir PDF</a></li>
+            <li><a href="../documentos/comprimir-pdf.html">Comprimir PDF</a></li>
+            <li><a href="../documentos/ocr.html">Extraer texto con OCR</a></li>
+            <li><a href="../documentos/contar-texto.html">Contar palabras y caracteres</a></li>
+          </ul>
+        </li>
+        <li><a href="../herramientas.html">Todas</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page container stack">
+
+    <div>
+      <h1 class="page__title" data-i18n="photo.title">Reduce el tamaño de tu foto</h1>
+      <p class="page__lead" data-i18n="photo.lead">Sube una imagen y descarga el resultado al peso indicado.</p>
+    </div>
+
+    <section id="photo-tool" class="photo-tool stack" aria-label="Herramienta">
+
+      <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-label="Elegir una foto" data-i18n-aria="photo.choose">
+      <p class="dropzone__title" data-i18n="photo.drag">Arrastra tu foto aquí</p>
+      <p class="dropzone__hint" data-i18n="photo.hint">o haz clic para elegirla (JPG, PNG, WebP)</p>
+        <input id="file-input" type="file" accept="image/*" class="hidden">
+      </div>
+
+      <div id="options" class="card stack hidden">
+
+        <div class="field">
+          <p class="field__label">Ajustes rápidos</p>
+          <div class="row photo-presets">
+            <button class="btn btn--ghost" type="button" data-photo-preset="100">Máx. 100 KB</button>
+            <button class="btn btn--ghost" type="button" data-photo-preset="200">Máx. 200 KB</button>
+          </div>
+        </div>
+
+        <fieldset class="field">
+          <legend class="field__label">Peso máximo</legend>
+          <div class="row">
+            <label class="chip"><input type="radio" name="weight" value="50"><span>50 KB</span></label>
+            <label class="chip"><input type="radio" name="weight" value="100" checked><span>100 KB</span></label>
+            <label class="chip"><input type="radio" name="weight" value="200"><span>200 KB</span></label>
+            <label class="chip"><input type="radio" name="weight" value="500"><span>500 KB</span></label>
+            <label class="chip"><input type="radio" name="weight" value="custom"><span>Otro</span></label>
+            <input id="custom-weight" class="input hidden" type="number" min="10" max="5000" step="10" placeholder="KB" aria-label="Peso máximo en KB">
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend class="field__label">Formato</legend>
+          <div class="row">
+            <label class="chip"><input type="radio" name="shape" value="original" checked><span>Sin recortar</span></label>
+            <label class="chip"><input type="radio" name="shape" value="1:1"><span>Cuadrada</span></label>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <div id="result" class="card stack hidden">
+        <img id="preview" class="preview" alt="Vista previa de la foto reducida">
+        <p id="result-info" class="result__info"></p>
+        <div class="row">
+          <button id="btn-download" class="btn btn--primary" type="button" data-i18n="photo.download">Descargar foto</button>
+          <button id="btn-reset" class="btn btn--ghost" type="button" data-i18n="photo.change">Cambiar foto</button>
+        </div>
+      </div>
+
+      <p id="message" class="msg" role="status"></p>
+
+    </section>
+
+    <p class="tool-summary" data-i18n="summary.photo">Ajusta el peso de una foto antes de subirla a un formulario o compartirla.</p>
+
+    <section class="faq stack" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="faq__title">Preguntas frecuentes</h2>
+
+      <details class="faq__item">
+        <summary>¿Cómo se procesa mi foto?</summary>
+        <p>La imagen se procesa en tu navegador y no se envía a un servidor. Elige un peso máximo o un ajuste rápido; si hace falta, se reducen la calidad y las dimensiones para alcanzarlo.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Qué formatos acepta y cuál descarga?</summary>
+        <p>Acepta JPG, PNG y WebP, y descarga el resultado en JPG. Algunos navegadores no abren fotos HEIC; si ocurre, conviértela primero a JPG.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>¿Qué indican el peso y las dimensiones del resultado?</summary>
+        <p>La comparativa muestra el tamaño y las dimensiones originales frente a los del JPG generado. El peso puede quedar por debajo del máximo elegido; si la imagen pierde demasiada calidad, prueba un límite mayor.</p>
+      </details>
+    </section>
+
+    <p class="msg">Cada trámite o convocatoria pide un formato distinto. Comprueba siempre las medidas y el peso que exige la tuya.</p>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <nav aria-label="Todas las herramientas">
+        <ul class="site-footer__links">
+          <li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

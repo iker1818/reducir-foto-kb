@@ -93,7 +93,7 @@
         name.textContent = item.file.name;
         var size = document.createElement("p");
         size.className = "msg";
-        size.textContent = formatSize(item.file.size) + " · " + item.documentPdf.numPages + " página(s)";
+        size.textContent = formatSize(item.file.size) + " · Páginas: " + item.documentPdf.numPages;
         details.appendChild(name);
         details.appendChild(size);
         var actions = document.createElement("div");
@@ -213,10 +213,10 @@
     isLoading = false;
     renderFiles();
     if (rejected) {
-      setMessage(added + " imagen(es) añadida(s); se omitieron " + rejected +
-        " archivo(s) no compatible(s) o que no se pudieron abrir.", true);
+      setMessage("Imágenes añadidas: " + added +
+        ". Archivos omitidos por formato no compatible o error de lectura: " + rejected + ".", true);
     } else {
-      setMessage(added + " imagen(es) lista(s) para el PDF.");
+      setMessage("Imágenes listas para el PDF: " + added + ".");
     }
     fileInput.value = "";
   }
@@ -393,7 +393,7 @@
           exported++;
         }
       }
-      setMessage(exported + " imagen(es) creada(s).");
+      setMessage("Imágenes creadas: " + exported + ".");
     } catch (error) {
       console.error(error);
       setMessage("No se pudo convertir el PDF. Prueba con otro archivo.", true);
@@ -427,7 +427,7 @@
       link.click();
       link.remove();
       setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
-      setMessage("PDF creado con " + currentImages.length + " página(s).");
+      setMessage("Páginas creadas: " + currentImages.length + ".");
     } catch (error) {
       console.error(error);
       setMessage("No se pudo crear el PDF. Prueba con imágenes más pequeñas o en otro formato.", true);

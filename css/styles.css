@@ -203,6 +203,17 @@ p { margin: 0; }
 .msg { color: var(--color-muted); font-size: var(--text-sm); }
 .msg.is-error { color: var(--color-error); }
 
+.tool-summary {
+  max-width: 760px;
+  margin: 1.25rem auto 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-surface);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
 .faq {
   margin-top: 3rem;
   padding-top: 1.5rem;

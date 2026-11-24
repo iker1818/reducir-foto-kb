@@ -39,7 +39,7 @@
     try {
       if (!window.PDFLib) throw new Error("pdf-lib unavailable");
       pdf = await window.PDFLib.PDFDocument.load(await file.arrayBuffer());
-      pageInfo.textContent = file.name + " · " + pdf.getPageCount() + " páginas";
+      pageInfo.textContent = file.name + " · Páginas: " + pdf.getPageCount();
       pagesInput.value = "1-" + pdf.getPageCount();
       extractButton.disabled = false;
     } catch (error) {
@@ -67,10 +67,10 @@
       link.download = (file.name.replace(/\.pdf$/i, "") || "documento") + "-paginas.pdf";
       link.click();
       setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
-      message.textContent = indexes.length + " página(s) extraída(s).";
+      message.textContent = "Páginas extraídas: " + indexes.length + ".";
       message.classList.remove("is-error");
     } catch (error) {
-      message.textContent = "No se pudo extraer las páginas.";
+      message.textContent = "No se pudieron extraer las páginas.";
       message.classList.add("is-error");
     } finally {
       extractButton.disabled = !pdf;

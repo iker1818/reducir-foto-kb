@@ -2,7 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Convertidor de monedas</title>
+  <title data-i18n="seo.currencyTitle">Convertidor de monedas online gratis | hazlofacil-tools</title>
+  <meta name="description" content="Convierte importes con tipos de referencia o introduce una tasa manual para una estimación rápida." data-i18n-content="seo.currencyDescription">
+  <meta property="og:title" content="Convertidor de monedas online gratis | hazlofacil-tools" data-i18n-content="seo.currencyTitle">
+  <meta property="og:description" content="Convierte importes con tipos de referencia o introduce una tasa manual para una estimación rápida." data-i18n-content="seo.currencyDescription">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hazlofacil-tools.netlify.app/conversiones/convertidor-monedas.html">
+  <meta property="og:image" content="https://hazlofacil-tools.netlify.app/img/Gemini_Generated_Image_z8re8yz8re8yz8re.jfif">
   <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
   <link rel="stylesheet" href="../css/styles.css">
 </head>
@@ -19,10 +25,11 @@
         <label class="field">Desde<select id="from" class="input input--full"><option>EUR</option><option>USD</option><option>GBP</option><option>JPY</option><option>CAD</option><option>CHF</option><option>MXN</option></select></label>
         <label class="field">A<select id="to" class="input input--full"><option>USD</option><option>EUR</option><option>GBP</option><option>JPY</option><option>CAD</option><option>CHF</option><option>MXN</option></select></label>
         <label class="field">Tasa manual<select id="rate-mode" class="input input--full"><option value="api">Usar tipos publicados</option><option value="manual">Introducir tasa propia</option></select></label>
-        <label id="manual-rate-field" class="field hidden">1 moneda origen = ? destino<input id="manual-rate" class="input input--full" type="number" min="0" step="any" value="1"></label>
+        <label id="manual-rate-field" class="field hidden">Tasa de cambio (unidades de destino por cada unidad de origen)<input id="manual-rate" class="input input--full" type="number" min="0" step="any" value="1"></label>
       </div>
       <p id="rate-info" class="msg" role="status">Consultando tipos de cambio…</p>
     </section>
+    <p class="tool-summary" data-i18n="summary.currency">Consulta una conversión de moneda o aplica tu propia tasa de cambio.</p>
   </main>
   <footer class="site-footer"><div class="container site-footer__inner"><nav aria-label="Todas las herramientas"><ul class="site-footer__links"><li><a href="../herramientas.html" data-i18n="common.allTools">Todas las herramientas</a></li></ul></nav></div></footer>
   <script src="../js/i18n.js"></script>

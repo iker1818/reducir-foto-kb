@@ -30,7 +30,7 @@
           if (info.status === "recognizing text") {
             progress.textContent = "Reconociendo texto: " + Math.round((info.progress || 0) * 100) + " %";
           } else if (info.status) {
-            progress.textContent = info.status;
+            progress.textContent = "Preparando OCR…";
           }
         }
       });
